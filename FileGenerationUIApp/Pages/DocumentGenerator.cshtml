@@ -1,0 +1,272 @@
+@page
+@model FileGenerationUIApp.Pages.DocumentGeneratorModel
+@{
+    ViewData["Title"] = "Document Generator";
+}
+
+<div class="container mt-4">
+    <h2>Document Generator</h2>
+    <p>Upload a master .docx template containing placeholders like {{FirstName}} and provide a JSON array of datasets. A ZIP of generated documents will be returned.</p>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h6 class="card-title">Employee Information .docx Template format (sample)</h6>
+
+            <p class="mb-1">
+                Use simple token placeholders inside the document using double curly braces.
+                Keep tokens as single words (no spaces).
+                Example fields:
+                <code>{{firstname}}</code>,
+                <code>{{lastname}}</code>,
+                <code>{{username}}</code>,
+                <code>{{roleName}}</code>,
+                <code>{{departmentName}}</code>,
+                <code>{{designationName}}</code>.
+            </p>
+
+            <p class="mb-0">Sample document structure:</p>
+
+            <pre style="font-size:0.9rem;background:#f8f9fa;padding:0.75rem;border-radius:4px;">Subject: Employee Information
+
+            Dear {{firstname}} {{lastname}},
+
+            This is to confirm the employee information associated with your account.
+
+            Employee Details:
+
+            Name: {{firstname}} {{lastname}}
+            Username: {{username}}
+            Role: {{roleName}}
+            Department: {{departmentName}}
+            Designation: {{designationName}}
+
+            Please review the above information and contact the concerned department if any information needs to be updated.
+
+            Regards,
+            Human Resources Department</pre>
+        </div>
+    </div>
+    <form method="post" enctype="multipart/form-data">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="mb-3">
+            <label class="form-label">Master .docx Template</label>
+            <!-- field name must match API: 'Template' -->
+            <input id="templateInput" type="file" name="Template" class="form-control" accept=".docx" required />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Datasets (JSON array)</label>
+            <textarea id="datasetsJson" name="DatasetsJson" rows="10" class="form-control" placeholder='[{"FirstName":"John","LastName":"Doe","UserName":"john@gmail.com"}, {"FirstName":"Jane","LastName":"Smith","UserName":"jane@gmail.com"}]' required></textarea>
+        </div>
+        <div class="mb-3">
+            <button id="previewBtn" type="button" class="btn btn-secondary me-2">Preview Datasets</button>
+            <button id="submitBtn" type="button" class="btn btn-primary">Generate Documents</button>
+        </div>
+    </form>
+
+    <div id="previewArea" class="mt-4"></div>
+
+    <hr />
+</div>
+
+@section Scripts {
+    <script>
+        (function(){
+            const textarea = document.getElementById('datasetsJson');
+            const previewArea = document.getElementById('previewArea');
+            const previewBtn = document.getElementById('previewBtn');            
+            const submitBtn = document.getElementById('submitBtn');
+            const datasetFields = ['FirstName','LastName','UserName'];
+            const templatePlaceholders = ['FirstName','LastName','UserName','RoleName','DepartmentName','DesignationName'];
+
+            // show allowed placeholders to user (note: datasets should include firstname, lastname, username)
+            function renderAllowedPlaceholders() {
+                const html = `<div class="card mb-3"><div class="card-body"><strong>Template placeholders</strong><div class="mt-2">${templatePlaceholders.map(p=>`<code>{{${p}}}</code>`).join(' ')}</div><small class="text-muted d-block mt-2">Datasets JSON should include FirstName, LastName and UserName. Include any additional fields you want replaced in the template.</small></div></div>`;
+                previewArea.insertAdjacentHTML('beforebegin', html);
+            }
+
+            renderAllowedPlaceholders();
+
+            function parseJson(text) {
+                const trimmed = (text || '').trim();
+                if (trimmed.length === 0) return { ok: false, error: 'Empty JSON' };
+                try {
+                    const parsed = JSON.parse(trimmed);
+                    if (!Array.isArray(parsed)) throw new Error('JSON must be an array of objects');
+                    return { ok: true, value: parsed };
+                } catch (e) {
+                    // return the exact error message from JSON.parse so UI can show it
+                    return { ok: false, error: e.message };
+                }
+            }
+
+            function transformDatasets(list) {
+                // map array of objects to only allowed dataset fields (PascalCase): FirstName, LastName, UserName
+                // also include resolved RoleName/DepartmentName/DesignationName if present in source
+                return (list || []).map(item => {
+                    const get = (keys) => {
+                        for (const k of keys) {
+                            if (item[k] !== undefined && item[k] !== null) return item[k];
+                        }
+                        return '';
+                    };
+
+                    const firstName = String(get(['FirstName','first_name','firstName','firstname','Firstname']) || '');
+                    const lastName = String(get(['LastName','last_name','lastName','lastname','Lastname']) || '');
+                    const userName = String(get(['UserName','userName','username','email','Email']) || '');
+
+                    const roleName = String(get(['RoleName','roleName','rolename']) || '');
+                    const departmentName = String(get(['DepartmentName','departmentName','departmentname']) || '');
+                    const designationName = String(get(['DesignationName','designationName','designationname']) || '');
+
+                    return {
+                        FirstName: firstName,
+                        LastName: lastName,
+                        UserName: userName,
+                        RoleName: roleName,
+                        DepartmentName: departmentName,
+                        DesignationName: designationName
+                    };
+                });
+            }
+
+            function renderPreview(list) {
+                if (!list || list.length === 0) {
+                    previewArea.innerHTML = '<div class="alert alert-info">No datasets to preview.</div>';
+                    return;
+                }
+                // use transformed view so Role/Department/Designation names show
+                const transformed = transformDatasets(list);
+                const colArr = datasetFields;
+
+                let html = '<h5>Datasets Preview</h5>';
+                html += '<table class="table table-sm table-bordered"><thead><tr>' + colArr.map(c => `<th>${c}</th>`).join('') + '</tr></thead><tbody>';
+                transformed.forEach(row => {
+                    html += '<tr>' + colArr.map(c => `<td>${(row && row[c]!==undefined)? String(row[c]) : ''}</td>`).join('') + '</tr>';
+                });
+                html += '</tbody></table>';
+                previewArea.innerHTML = html;
+            }
+
+            function validateAndToggle() {
+                const txt = (textarea.value || '').trim();
+
+                if (txt.length === 0) {
+                    submitBtn.disabled = true;
+                    previewArea.innerHTML = '<div class="alert alert-info">Enter JSON datasets and click Preview or Generate.</div>';
+                    return;
+                }
+
+                const res = parseJson(textarea.value);
+                if (!res.ok) {
+                    submitBtn.disabled = true;
+                    previewArea.innerHTML = `<div class="alert alert-danger">JSON error: ${res.error}</div>`;
+                } else {
+                    submitBtn.disabled = false;
+                    previewArea.innerHTML = '';
+                }
+            }
+
+            textarea.addEventListener('input', function(){ validateAndToggle(); });
+            previewBtn.addEventListener('click', async function(){
+                const trimmed = (textarea.value || '').trim();
+                if (trimmed.length === 0) {
+                    previewArea.innerHTML = '<div class="alert alert-info">Enter JSON datasets and click Preview.</div>';
+                    return;
+                }
+
+                const res = parseJson(textarea.value);
+                if (!res.ok) {
+                    previewArea.innerHTML = `<div class="alert alert-danger">JSON error: ${res.error}</div>`;
+                    return;
+                }
+                renderPreview(res.value);
+            });
+
+            async function sendToApi() {
+                const fileInput = document.getElementById('templateInput');
+                if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+                    previewArea.innerHTML = '<div class="alert alert-danger">Please select a .docx template file.</div>';
+                    return;
+                }
+
+                let transformed = null;
+
+                // Use provided datasets JSON (required)
+                const trimmed = (textarea.value || '').trim();
+                if (trimmed.length === 0) {
+                    previewArea.innerHTML = '<div class="alert alert-danger">Please provide Datasets JSON (array of objects).</div>';
+                    return;
+                }
+
+                const res = parseJson(textarea.value);
+                if (!res.ok) {
+                    previewArea.innerHTML = `<div class="alert alert-danger">JSON error: ${res.error}</div>`;
+                    return;
+                }
+                const parsed = res.value;
+                transformed = transformDatasets(parsed);
+
+                const fd = new FormData();
+                fd.append('Template', fileInput.files[0]);
+                // send transformed datasets JSON (only allowed placeholders, with resolved names)
+                fd.append('DatasetsJson', JSON.stringify(transformed));
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Generating...';
+                previewArea.innerHTML = '<div class="alert alert-info">Sending request to generation API...</div>';
+
+                try {
+                    // POST directly to the generation API so the API controller is invoked
+                    // adjust this URL if your API runs on a different host/port
+                    const apiUrl = 'https://localhost:7056/api/Document/generate';
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        body: fd
+                        // DO NOT set Content-Type; browser will add multipart/form-data boundary
+                    });
+
+                    const contentType = response.headers.get('Content-Type') || '';
+                    if (response.ok && (contentType.indexOf('application/zip') !== -1 || contentType.indexOf('application/octet-stream') !== -1)) {
+                        const blob = await response.blob();
+                        // try to get filename from Content-Disposition
+                        let filename = 'generated_documents.zip';
+                        const disp = response.headers.get('Content-Disposition') || response.headers.get('content-disposition');
+                        if (disp) {
+                            const m = /filename\*=UTF-8''([^;\n]+)/i.exec(disp) || /filename="?([^";]+)"?/i.exec(disp);
+                            if (m && m[1]) filename = decodeURIComponent(m[1]);
+                        }
+
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = filename;
+                        document.body.appendChild(a);
+                        a.click();
+                        a.remove();
+                        URL.revokeObjectURL(url);
+                        previewArea.innerHTML = '<div class="alert alert-success">Download started.</div>';
+                    } else {
+                        // try to read JSON error or plain text
+                        let text = await response.text();
+                        try {
+                            const j = JSON.parse(text);
+                            text = j.message || j.error || JSON.stringify(j);
+                        } catch (e) {
+                            // leave text as-is (may be HTML or plain text)
+                        }
+                        previewArea.innerHTML = `<div class="alert alert-danger">Server error: ${text}</div>`;
+                    }
+                } catch (ex) {
+                    previewArea.innerHTML = `<div class="alert alert-danger">Request failed: ${ex.message}</div>`;
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Generate Documents';
+                }
+            }
+
+            submitBtn.addEventListener('click', function(){ sendToApi(); });
+
+            // initial message (do not parse empty textarea onload)
+            previewArea.innerHTML = '<div class="alert alert-info">Enter JSON datasets and click Preview.</div>';
+        })();
+    </script>
+}

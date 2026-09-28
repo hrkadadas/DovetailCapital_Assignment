@@ -1,0 +1,143 @@
+[
+  {
+    "ContainingType": "FileGenerationAPIApp.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "req",
+        "Type": "FileGenerationAPIApp.Controllers.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FileGenerationAPIApp.Controllers.DocumentController",
+    "Method": "Generate",
+    "RelativePath": "api/Document/generate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Template",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "DatasetsJson",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FileGenerationAPIApp.Controllers.MastersController",
+    "Method": "GetDepartments",
+    "RelativePath": "api/Masters/departments",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FileGenerationAPIApp.Controllers.MastersController",
+    "Method": "CreateDepartment",
+    "RelativePath": "api/Masters/departments",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dep",
+        "Type": "FileGenerationAPIApp.Models.Department",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FileGenerationAPIApp.Controllers.MastersController",
+    "Method": "GetDesignations",
+    "RelativePath": "api/Masters/designations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FileGenerationAPIApp.Controllers.MastersController",
+    "Method": "CreateDesignation",
+    "RelativePath": "api/Masters/designations",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "d",
+        "Type": "FileGenerationAPIApp.Models.Designation",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FileGenerationAPIApp.Controllers.MastersController",
+    "Method": "GetRoles",
+    "RelativePath": "api/Masters/roles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FileGenerationAPIApp.Controllers.MastersController",
+    "Method": "CreateRole",
+    "RelativePath": "api/Masters/roles",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "role",
+        "Type": "FileGenerationAPIApp.Models.Role",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FileGenerationAPIApp.Controllers.MastersController",
+    "Method": "GetUsers",
+    "RelativePath": "api/Masters/users",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "FileGenerationAPIApp.Controllers.MastersController",
+    "Method": "CreateUser",
+    "RelativePath": "api/Masters/users",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "createUser",
+        "Type": "CreateUser",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

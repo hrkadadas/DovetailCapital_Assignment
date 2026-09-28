@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "FileGenerationUIApp.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "..\\FileGenerationAPIApp\\FileGenerationAPIApp.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

@@ -1,0 +1,50 @@
+@page
+@model FileGenerationUIApp.Pages.Masters.DesignationModel
+@{
+    ViewData["Title"] = "Designation";
+}
+
+<div class="container mt-4">
+    <h2>Designation</h2>
+    <p>Listing designations from backend API.</p>
+    @if (!string.IsNullOrEmpty(Model.StatusMessage))
+    {
+        <div class="alert alert-info">@Model.StatusMessage</div>
+    }
+
+    <div class="card mb-3 p-3">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <input asp-for="NewTitle" class="form-control" placeholder="Title" />
+                </div>
+                <div class="col-md-4">
+                    <input asp-for="NewDescription" class="form-control" placeholder="Description (optional)" />
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary" type="submit">Create</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    @if (Model.Designations == null || !Model.Designations.Any())
+    {
+        <div class="alert alert-info">No designations found.</div>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead><tr><th>#</th><th>Title</th><th>Description</th></tr></thead>
+            <tbody>
+                @for (int i = 0; i < Model.Designations.Count; i++)
+                {
+                    <tr>
+                        <td>@(i+1)</td>
+                        <td>@Model.Designations[i].GetValueOrDefault("name")</td>
+                        <td>@Model.Designations[i].GetValueOrDefault("description")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

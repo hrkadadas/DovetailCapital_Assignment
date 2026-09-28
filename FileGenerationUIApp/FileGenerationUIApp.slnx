@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../FileGenerationAPIApp/FileGenerationAPIApp.csproj" />
+  <Project Path="FileGenerationUIApp.csproj" />
+</Solution>

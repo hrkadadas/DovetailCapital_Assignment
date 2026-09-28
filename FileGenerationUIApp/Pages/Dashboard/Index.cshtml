@@ -1,0 +1,33 @@
+@page
+@model FileGenerationUIApp.Pages.Dashboard.IndexModel
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-4">
+    <h2>Dashboard</h2>
+    <p>Quick access to Masters and Document Generator.</p>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Masters</h5>
+                    <p class="card-text">Manage Users, Roles, Designations, Departments.</p>
+                    <a href="/Masters/Roles" class="btn btn-sm btn-secondary">Roles</a>
+                    <a href="/Masters/Departments" class="btn btn-sm btn-secondary">Departments</a>
+                    <a href="/Masters/Designation" class="btn btn-sm btn-secondary">Designation</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Document Generator</h5>
+                    <p class="card-text">Upload master template and generate documents for multiple datasets.</p>
+                    <a href="/DocumentGenerator" class="btn btn-sm btn-success">Open Generator</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

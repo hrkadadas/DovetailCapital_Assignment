@@ -1,0 +1,644 @@
+2026-09-27 01:19:49.254 +05:30 [INF] User profile is available. Using 'C:\Users\Akshay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-27 01:19:49.446 +05:30 [INF] Now listening on: https://localhost:7056
+2026-09-27 01:19:49.447 +05:30 [INF] Now listening on: http://localhost:5078
+2026-09-27 01:19:49.499 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-27 01:19:49.499 +05:30 [INF] Hosting environment: Development
+2026-09-27 01:19:49.499 +05:30 [INF] Content root path: D:\Practices\Dovetail Capital\BackendAPI\FileGenerationAPIApp
+2026-09-27 01:19:50.625 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 01:19:51.048 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 421.8493ms
+2026-09-27 01:19:51.121 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 01:19:51.121 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 01:19:51.137 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 16.3393ms
+2026-09-27 01:19:51.217 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 95.7825ms
+2026-09-27 01:19:52.709 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 01:19:52.765 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 55.5997ms
+2026-09-27 01:20:37.245 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7056/api/auth/login - application/json; charset=utf-8 null
+2026-09-27 01:20:37.371 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp)'
+2026-09-27 01:20:37.436 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FileGenerationAPIApp.Controllers.LoginRequest) on controller FileGenerationAPIApp.Controllers.AuthController (FileGenerationAPIApp).
+2026-09-27 01:20:41.223 +05:30 [INF] Executed DbCommand (154ms) [Parameters=[@__username_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u.id, u.departmentid, u.designationid, u.firstname, u.isactive, u.lastname, u.passwordhash, u.roleid, u.username, r.id, r.isactive, r.name, d.id, d.isactive, d.name, d0.id, d0.isactive, d0.name
+FROM public.user_tbl AS u
+INNER JOIN public.role_tbl AS r ON u.roleid = r.id
+LEFT JOIN public.designation_tbl AS d ON u.designationid = d.id
+LEFT JOIN public.department_tbl AS d0 ON u.departmentid = d0.id
+WHERE u.username = @__username_0
+LIMIT 1
+2026-09-27 01:20:41.740 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 01:20:41.759 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp) in 4316.3187ms
+2026-09-27 01:20:41.760 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp)'
+2026-09-27 01:20:41.781 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7056/api/auth/login - 200 null application/json; charset=utf-8 4536.1836ms
+2026-09-27 01:20:49.446 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7056/api/roles - null null
+2026-09-27 01:20:49.452 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7056/api/roles - 404 0 null 6.7345ms
+2026-09-27 01:20:49.454 +05:30 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET https://localhost:7056/api/roles, Response status code: 404
+2026-09-27 01:22:57.440 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryWfZz6V4tBup4Hyuk 11206
+2026-09-27 01:22:57.476 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-09-27 01:22:57.490 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-27 01:22:57.490 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 401 0 null 50.5422ms
+2026-09-27 01:25:40.964 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryAWLAWmVGe1g7N0Bo 11206
+2026-09-27 01:25:40.979 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-09-27 01:25:40.981 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-27 01:25:40.982 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 401 0 null 18.0543ms
+2026-09-27 01:26:07.487 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryAix2KXJfTHBZfbSN 11206
+2026-09-27 01:26:07.495 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-09-27 01:26:07.496 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-27 01:26:07.496 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 401 0 null 8.7577ms
+2026-09-27 01:28:25.206 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryZ7ZIvxZYDpxtE6WE 11206
+2026-09-27 01:28:25.216 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-09-27 01:28:25.216 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-27 01:28:25.216 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 401 0 null 10.7434ms
+2026-09-27 01:28:28.521 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryB0tk46KDdJ9w3lg8 11206
+2026-09-27 01:28:28.521 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-09-27 01:28:28.522 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-27 01:28:28.522 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 401 0 null 1.1239ms
+2026-09-27 01:56:29.500 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundary7gUxp9djNuQ6HoGo 11206
+2026-09-27 01:56:29.505 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-09-27 01:56:29.505 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-27 01:56:29.506 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 401 0 null 5.3848ms
+2026-09-27 01:56:31.106 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryWPzh1dWrXVXjcy30 11206
+2026-09-27 01:56:31.108 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-09-27 01:56:31.109 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-27 01:56:31.110 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 401 0 null 4.2351ms
+2026-09-27 01:56:45.099 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundarypZC6IdS9DaLjbaEV 11206
+2026-09-27 01:56:45.100 +05:30 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2026-09-27 01:56:45.101 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-09-27 01:56:45.101 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 401 0 null 2.0102ms
+2026-09-27 02:04:00.662 +05:30 [INF] User profile is available. Using 'C:\Users\Akshay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-27 02:04:00.888 +05:30 [INF] Now listening on: https://localhost:7056
+2026-09-27 02:04:00.888 +05:30 [INF] Now listening on: http://localhost:5078
+2026-09-27 02:04:00.948 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-27 02:04:00.948 +05:30 [INF] Hosting environment: Development
+2026-09-27 02:04:00.948 +05:30 [INF] Content root path: D:\Practices\Dovetail Capital\BackendAPI\FileGenerationAPIApp
+2026-09-27 02:04:02.055 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 02:04:02.240 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 190.5042ms
+2026-09-27 02:04:02.268 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 02:04:02.268 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 02:04:02.273 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 4.4904ms
+2026-09-27 02:04:02.312 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.732ms
+2026-09-27 02:04:02.373 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 02:04:02.400 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.2627ms
+2026-09-27 02:24:12.878 +05:30 [INF] User profile is available. Using 'C:\Users\Akshay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-27 02:24:13.067 +05:30 [INF] Now listening on: https://localhost:7056
+2026-09-27 02:24:13.067 +05:30 [INF] Now listening on: http://localhost:5078
+2026-09-27 02:24:13.156 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-27 02:24:13.157 +05:30 [INF] Hosting environment: Development
+2026-09-27 02:24:13.157 +05:30 [INF] Content root path: D:\Practices\Dovetail Capital\BackendAPI\FileGenerationAPIApp
+2026-09-27 02:24:15.317 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 02:24:15.729 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 414.9346ms
+2026-09-27 02:24:15.743 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 02:24:15.743 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 02:24:15.752 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 8.8291ms
+2026-09-27 02:24:15.818 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 74.4512ms
+2026-09-27 02:24:15.871 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 02:24:15.926 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 54.0969ms
+2026-09-27 02:24:27.643 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7056/api/auth/login - application/json; charset=utf-8 null
+2026-09-27 02:24:27.740 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp)'
+2026-09-27 02:24:27.787 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FileGenerationAPIApp.Controllers.LoginRequest) on controller FileGenerationAPIApp.Controllers.AuthController (FileGenerationAPIApp).
+2026-09-27 02:24:31.343 +05:30 [INF] Executed DbCommand (142ms) [Parameters=[@__username_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u.id, u.departmentid, u.designationid, u.firstname, u.isactive, u.lastname, u.passwordhash, u.roleid, u.username, r.id, r.isactive, r.name, d.id, d.isactive, d.name, d0.id, d0.isactive, d0.name
+FROM public.user_tbl AS u
+INNER JOIN public.role_tbl AS r ON u.roleid = r.id
+LEFT JOIN public.designation_tbl AS d ON u.designationid = d.id
+LEFT JOIN public.department_tbl AS d0 ON u.departmentid = d0.id
+WHERE u.username = @__username_0
+LIMIT 1
+2026-09-27 02:24:31.880 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 02:24:31.900 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp) in 4102.321ms
+2026-09-27 02:24:31.901 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp)'
+2026-09-27 02:24:31.919 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7056/api/auth/login - 200 null application/json; charset=utf-8 4276.4969ms
+2026-09-27 02:25:02.459 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryVeA5aNuRU8XxgSil 11182
+2026-09-27 02:25:02.475 +05:30 [INF] CORS policy execution successful.
+2026-09-27 02:25:02.489 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 02:25:02.526 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-27 02:25:07.018 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r.id, r.isactive, r.name
+FROM public.role_tbl AS r
+2026-09-27 02:25:07.043 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.designation_tbl AS d
+2026-09-27 02:25:07.064 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.department_tbl AS d
+2026-09-27 02:25:07.099 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u.id, u.departmentid, u.designationid, u.firstname, u.isactive, u.lastname, u.passwordhash, u.roleid, u.username, r.id, r.isactive, r.name, d.id, d.isactive, d.name, d0.id, d0.isactive, d0.name
+FROM public.user_tbl AS u
+INNER JOIN public.role_tbl AS r ON u.roleid = r.id
+LEFT JOIN public.designation_tbl AS d ON u.designationid = d.id
+LEFT JOIN public.department_tbl AS d0 ON u.departmentid = d0.id
+2026-09-27 02:25:07.927 +05:30 [INF] Executing FileContentResult, sending file with download name 'GeneratedDocuments.zip' ...
+2026-09-27 02:25:07.956 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 5428.6267ms
+2026-09-27 02:25:07.956 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 02:25:07.958 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 200 9588 application/zip 5500.6415ms
+2026-09-27 02:27:43.833 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryES62t2dmhc7gBuEk 11206
+2026-09-27 02:27:43.841 +05:30 [INF] CORS policy execution successful.
+2026-09-27 02:27:43.851 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 02:27:43.854 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-27 02:27:49.195 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r.id, r.isactive, r.name
+FROM public.role_tbl AS r
+2026-09-27 02:27:49.201 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.designation_tbl AS d
+2026-09-27 02:27:49.206 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.department_tbl AS d
+2026-09-27 02:27:49.216 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u.id, u.departmentid, u.designationid, u.firstname, u.isactive, u.lastname, u.passwordhash, u.roleid, u.username, r.id, r.isactive, r.name, d.id, d.isactive, d.name, d0.id, d0.isactive, d0.name
+FROM public.user_tbl AS u
+INNER JOIN public.role_tbl AS r ON u.roleid = r.id
+LEFT JOIN public.designation_tbl AS d ON u.designationid = d.id
+LEFT JOIN public.department_tbl AS d0 ON u.departmentid = d0.id
+2026-09-27 02:27:49.234 +05:30 [INF] Executing FileContentResult, sending file with download name 'GeneratedDocuments.zip' ...
+2026-09-27 02:27:49.238 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 5383.7913ms
+2026-09-27 02:27:49.238 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 02:27:49.238 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 200 9605 application/zip 5407.4684ms
+2026-09-27 03:00:42.857 +05:30 [INF] User profile is available. Using 'C:\Users\Akshay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-27 03:00:43.032 +05:30 [INF] Now listening on: https://localhost:7056
+2026-09-27 03:00:43.032 +05:30 [INF] Now listening on: http://localhost:5078
+2026-09-27 03:00:43.080 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-27 03:00:43.080 +05:30 [INF] Hosting environment: Development
+2026-09-27 03:00:43.080 +05:30 [INF] Content root path: D:\Practices\Dovetail Capital\BackendAPI\FileGenerationAPIApp
+2026-09-27 03:00:44.313 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 03:00:44.586 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 275.178ms
+2026-09-27 03:00:44.622 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 03:00:44.622 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 03:00:44.628 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 5.6105ms
+2026-09-27 03:00:44.666 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 43.0307ms
+2026-09-27 03:00:44.865 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 03:00:44.915 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 50.0684ms
+2026-09-27 03:00:50.239 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7056/api/Masters/roles - null null
+2026-09-27 03:00:50.359 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetRoles (FileGenerationAPIApp)'
+2026-09-27 03:00:50.403 +05:30 [INF] Route matched with {action = "GetRoles", controller = "Masters"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRoles() on controller FileGenerationAPIApp.Controllers.MastersController (FileGenerationAPIApp).
+2026-09-27 03:00:53.207 +05:30 [INF] Executed DbCommand (46ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r.id, r.isactive, r.name
+FROM public.role_tbl AS r
+2026-09-27 03:00:53.479 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 03:00:53.523 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.MastersController.GetRoles (FileGenerationAPIApp) in 3110.0244ms
+2026-09-27 03:00:53.524 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetRoles (FileGenerationAPIApp)'
+2026-09-27 03:00:53.545 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7056/api/Masters/roles - 200 null application/json; charset=utf-8 3305.5902ms
+2026-09-27 03:01:04.240 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7056/api/Masters/designations - null null
+2026-09-27 03:01:04.257 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp)'
+2026-09-27 03:01:04.275 +05:30 [INF] Route matched with {action = "GetDesignations", controller = "Masters"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDesignations() on controller FileGenerationAPIApp.Controllers.MastersController (FileGenerationAPIApp).
+2026-09-27 03:01:04.421 +05:30 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.designation_tbl AS d
+2026-09-27 03:01:04.447 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 03:01:04.454 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp) in 179.0461ms
+2026-09-27 03:01:04.455 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp)'
+2026-09-27 03:01:04.456 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7056/api/Masters/designations - 200 null application/json; charset=utf-8 215.7941ms
+2026-09-27 03:01:41.613 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7056/api/Masters/roles - null null
+2026-09-27 03:01:41.625 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetRoles (FileGenerationAPIApp)'
+2026-09-27 03:01:41.627 +05:30 [INF] Route matched with {action = "GetRoles", controller = "Masters"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRoles() on controller FileGenerationAPIApp.Controllers.MastersController (FileGenerationAPIApp).
+2026-09-27 03:01:41.682 +05:30 [INF] Executed DbCommand (7ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r.id, r.isactive, r.name
+FROM public.role_tbl AS r
+2026-09-27 03:01:41.683 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 03:01:41.684 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.MastersController.GetRoles (FileGenerationAPIApp) in 55.6559ms
+2026-09-27 03:01:41.684 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetRoles (FileGenerationAPIApp)'
+2026-09-27 03:01:41.684 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7056/api/Masters/roles - 200 null application/json; charset=utf-8 71.7931ms
+2026-09-27 03:25:31.578 +05:30 [INF] User profile is available. Using 'C:\Users\Akshay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-27 03:25:31.751 +05:30 [INF] Now listening on: https://localhost:7056
+2026-09-27 03:25:31.753 +05:30 [INF] Now listening on: http://localhost:5078
+2026-09-27 03:25:31.830 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-27 03:25:31.830 +05:30 [INF] Hosting environment: Development
+2026-09-27 03:25:31.830 +05:30 [INF] Content root path: D:\Practices\Dovetail Capital\BackendAPI\FileGenerationAPIApp
+2026-09-27 03:25:32.757 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 03:25:32.934 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 177.1783ms
+2026-09-27 03:25:32.964 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 03:25:32.964 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 03:25:32.969 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 5.1499ms
+2026-09-27 03:25:33.009 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 44.6236ms
+2026-09-27 03:25:33.056 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 03:25:33.075 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 18.5628ms
+2026-09-27 03:25:48.295 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7056/api/auth/login - application/json; charset=utf-8 null
+2026-09-27 03:25:48.501 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp)'
+2026-09-27 03:25:48.553 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FileGenerationAPIApp.Controllers.LoginRequest) on controller FileGenerationAPIApp.Controllers.AuthController (FileGenerationAPIApp).
+2026-09-27 03:25:52.238 +05:30 [INF] Executed DbCommand (157ms) [Parameters=[@__username_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u.id, u.departmentid, u.designationid, u.firstname, u.isactive, u.lastname, u.passwordhash, u.roleid, u.username, r.id, r.isactive, r.name, d.id, d.isactive, d.name, d0.id, d0.isactive, d0.name
+FROM public.user_tbl AS u
+INNER JOIN public.role_tbl AS r ON u.roleid = r.id
+LEFT JOIN public.designation_tbl AS d ON u.designationid = d.id
+LEFT JOIN public.department_tbl AS d0 ON u.departmentid = d0.id
+WHERE u.username = @__username_0
+LIMIT 1
+2026-09-27 03:25:52.748 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 03:25:52.769 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp) in 4206.0864ms
+2026-09-27 03:25:52.770 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp)'
+2026-09-27 03:25:52.788 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7056/api/auth/login - 200 null application/json; charset=utf-8 4492.5699ms
+2026-09-27 03:26:14.445 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7056/api/Masters/designations - null null
+2026-09-27 03:26:14.462 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp)'
+2026-09-27 03:26:14.479 +05:30 [INF] Route matched with {action = "GetDesignations", controller = "Masters"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDesignations() on controller FileGenerationAPIApp.Controllers.MastersController (FileGenerationAPIApp).
+2026-09-27 03:26:14.659 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.designation_tbl AS d
+2026-09-27 03:26:14.668 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 03:26:14.676 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp) in 195.9202ms
+2026-09-27 03:26:14.676 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp)'
+2026-09-27 03:26:14.677 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7056/api/Masters/designations - 200 null application/json; charset=utf-8 232.2598ms
+2026-09-27 03:26:33.039 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7056/api/Masters/designations - null null
+2026-09-27 03:26:33.050 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp)'
+2026-09-27 03:26:33.052 +05:30 [INF] Route matched with {action = "GetDesignations", controller = "Masters"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDesignations() on controller FileGenerationAPIApp.Controllers.MastersController (FileGenerationAPIApp).
+2026-09-27 03:26:33.098 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.designation_tbl AS d
+2026-09-27 03:26:33.099 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 03:26:33.099 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp) in 47.1582ms
+2026-09-27 03:26:33.100 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp)'
+2026-09-27 03:26:33.100 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7056/api/Masters/designations - 200 null application/json; charset=utf-8 60.7352ms
+2026-09-27 03:31:24.961 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 03:31:24.999 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 36.9127ms
+2026-09-27 03:31:25.084 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 03:31:25.091 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 03:31:25.093 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 8.7551ms
+2026-09-27 03:31:25.160 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 69.4431ms
+2026-09-27 03:31:25.529 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 03:31:25.544 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 15.825ms
+2026-09-27 03:31:28.384 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7056/api/Masters/departments - null null
+2026-09-27 03:31:28.386 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDepartments (FileGenerationAPIApp)'
+2026-09-27 03:31:28.399 +05:30 [INF] Route matched with {action = "GetDepartments", controller = "Masters"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDepartments() on controller FileGenerationAPIApp.Controllers.MastersController (FileGenerationAPIApp).
+2026-09-27 03:31:28.626 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.department_tbl AS d
+2026-09-27 03:31:28.628 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 03:31:28.635 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.MastersController.GetDepartments (FileGenerationAPIApp) in 235.3203ms
+2026-09-27 03:31:28.636 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDepartments (FileGenerationAPIApp)'
+2026-09-27 03:31:28.636 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7056/api/Masters/departments - 200 null application/json; charset=utf-8 252.2229ms
+2026-09-27 03:32:00.239 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 03:32:00.264 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 25.1389ms
+2026-09-27 03:32:00.355 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 03:32:00.359 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 03:32:00.363 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 3.678ms
+2026-09-27 03:32:00.419 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 63.9881ms
+2026-09-27 03:32:00.908 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 03:32:00.920 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 12.7489ms
+2026-09-27 03:33:06.005 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 03:33:06.021 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 16.4132ms
+2026-09-27 03:33:06.121 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 03:33:06.121 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 03:33:06.124 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 3.2525ms
+2026-09-27 03:33:06.171 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.2835ms
+2026-09-27 03:33:06.588 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 03:33:06.598 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.8851ms
+2026-09-27 03:33:09.831 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7056/api/Masters/departments - null null
+2026-09-27 03:33:09.833 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDepartments (FileGenerationAPIApp)'
+2026-09-27 03:33:09.847 +05:30 [INF] Route matched with {action = "GetDepartments", controller = "Masters"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDepartments() on controller FileGenerationAPIApp.Controllers.MastersController (FileGenerationAPIApp).
+2026-09-27 03:33:09.855 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.department_tbl AS d
+2026-09-27 03:33:09.856 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 03:33:09.866 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.MastersController.GetDepartments (FileGenerationAPIApp) in 19.1134ms
+2026-09-27 03:33:09.866 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDepartments (FileGenerationAPIApp)'
+2026-09-27 03:33:09.867 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7056/api/Masters/departments - 200 null application/json; charset=utf-8 35.551ms
+2026-09-27 19:26:05.354 +05:30 [INF] User profile is available. Using 'C:\Users\Akshay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-27 19:26:05.734 +05:30 [INF] Now listening on: https://localhost:7056
+2026-09-27 19:26:05.734 +05:30 [INF] Now listening on: http://localhost:5078
+2026-09-27 19:26:05.834 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-27 19:26:05.835 +05:30 [INF] Hosting environment: Development
+2026-09-27 19:26:05.835 +05:30 [INF] Content root path: D:\Practices\Dovetail Capital\BackendAPI\FileGenerationAPIApp
+2026-09-27 19:26:08.332 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 19:26:08.777 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 446.7547ms
+2026-09-27 19:26:08.785 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 19:26:08.791 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 19:26:08.803 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 17.9761ms
+2026-09-27 19:26:08.882 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 90.5955ms
+2026-09-27 19:26:09.971 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 19:26:10.038 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 66.9879ms
+2026-09-27 19:26:19.711 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7056/api/auth/login - application/json; charset=utf-8 null
+2026-09-27 19:26:19.836 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp)'
+2026-09-27 19:26:19.890 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FileGenerationAPIApp.Controllers.LoginRequest) on controller FileGenerationAPIApp.Controllers.AuthController (FileGenerationAPIApp).
+2026-09-27 19:26:23.224 +05:30 [INF] Executed DbCommand (90ms) [Parameters=[@__username_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u.id, u.departmentid, u.designationid, u.firstname, u.isactive, u.lastname, u.passwordhash, u.roleid, u.username, r.id, r.isactive, r.name, d.id, d.isactive, d.name, d0.id, d0.isactive, d0.name
+FROM public.user_tbl AS u
+INNER JOIN public.role_tbl AS r ON u.roleid = r.id
+LEFT JOIN public.designation_tbl AS d ON u.designationid = d.id
+LEFT JOIN public.department_tbl AS d0 ON u.departmentid = d0.id
+WHERE u.username = @__username_0
+LIMIT 1
+2026-09-27 19:26:23.710 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 19:26:23.728 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp) in 3830.6875ms
+2026-09-27 19:26:23.729 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp)'
+2026-09-27 19:26:23.755 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7056/api/auth/login - 200 null application/json; charset=utf-8 4043.8425ms
+2026-09-27 19:26:26.474 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7056/api/Masters/designations - null null
+2026-09-27 19:26:26.480 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp)'
+2026-09-27 19:26:26.499 +05:30 [INF] Route matched with {action = "GetDesignations", controller = "Masters"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDesignations() on controller FileGenerationAPIApp.Controllers.MastersController (FileGenerationAPIApp).
+2026-09-27 19:26:26.651 +05:30 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.designation_tbl AS d
+2026-09-27 19:26:26.655 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 19:26:26.662 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp) in 162.1421ms
+2026-09-27 19:26:26.662 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp)'
+2026-09-27 19:26:26.663 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7056/api/Masters/designations - 200 null application/json; charset=utf-8 188.9258ms
+2026-09-27 19:26:31.642 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7056/api/Masters/roles - null null
+2026-09-27 19:26:31.651 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetRoles (FileGenerationAPIApp)'
+2026-09-27 19:26:31.661 +05:30 [INF] Route matched with {action = "GetRoles", controller = "Masters"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetRoles() on controller FileGenerationAPIApp.Controllers.MastersController (FileGenerationAPIApp).
+2026-09-27 19:26:31.727 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r.id, r.isactive, r.name
+FROM public.role_tbl AS r
+2026-09-27 19:26:31.732 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 19:26:31.736 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.MastersController.GetRoles (FileGenerationAPIApp) in 74.599ms
+2026-09-27 19:26:31.736 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetRoles (FileGenerationAPIApp)'
+2026-09-27 19:26:31.737 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7056/api/Masters/roles - 200 null application/json; charset=utf-8 94.2725ms
+2026-09-27 19:27:01.850 +05:30 [INF] Request starting HTTP/1.1 GET https://localhost:7056/api/Masters/designations - null null
+2026-09-27 19:27:01.854 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp)'
+2026-09-27 19:27:01.854 +05:30 [INF] Route matched with {action = "GetDesignations", controller = "Masters"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDesignations() on controller FileGenerationAPIApp.Controllers.MastersController (FileGenerationAPIApp).
+2026-09-27 19:27:01.861 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.designation_tbl AS d
+2026-09-27 19:27:01.864 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 19:27:01.864 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp) in 9.7356ms
+2026-09-27 19:27:01.864 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.MastersController.GetDesignations (FileGenerationAPIApp)'
+2026-09-27 19:27:01.865 +05:30 [INF] Request finished HTTP/1.1 GET https://localhost:7056/api/Masters/designations - 200 null application/json; charset=utf-8 15.3157ms
+2026-09-27 19:28:48.185 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryD1pURqhF6gofXNwv 11203
+2026-09-27 19:28:48.197 +05:30 [INF] CORS policy execution successful.
+2026-09-27 19:28:48.205 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 19:28:48.222 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-27 19:28:48.402 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r.id, r.isactive, r.name
+FROM public.role_tbl AS r
+2026-09-27 19:28:48.409 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.designation_tbl AS d
+2026-09-27 19:28:48.433 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.department_tbl AS d
+2026-09-27 19:28:48.474 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u.id, u.departmentid, u.designationid, u.firstname, u.isactive, u.lastname, u.passwordhash, u.roleid, u.username, r.id, r.isactive, r.name, d.id, d.isactive, d.name, d0.id, d0.isactive, d0.name
+FROM public.user_tbl AS u
+INNER JOIN public.role_tbl AS r ON u.roleid = r.id
+LEFT JOIN public.designation_tbl AS d ON u.designationid = d.id
+LEFT JOIN public.department_tbl AS d0 ON u.departmentid = d0.id
+2026-09-27 19:28:49.267 +05:30 [INF] Executing FileContentResult, sending file with download name 'GeneratedDocuments.zip' ...
+2026-09-27 19:28:49.326 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 1103.9993ms
+2026-09-27 19:28:49.326 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 19:28:49.328 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 200 9668 application/zip 1143.7638ms
+2026-09-27 19:30:17.218 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryB3tmXEYroxkmvEiM 11186
+2026-09-27 19:30:17.219 +05:30 [INF] CORS policy execution successful.
+2026-09-27 19:30:17.224 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 19:30:17.225 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-27 19:30:17.249 +05:30 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r.id, r.isactive, r.name
+FROM public.role_tbl AS r
+2026-09-27 19:30:17.257 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.designation_tbl AS d
+2026-09-27 19:30:17.262 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.department_tbl AS d
+2026-09-27 19:30:17.289 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u.id, u.departmentid, u.designationid, u.firstname, u.isactive, u.lastname, u.passwordhash, u.roleid, u.username, r.id, r.isactive, r.name, d.id, d.isactive, d.name, d0.id, d0.isactive, d0.name
+FROM public.user_tbl AS u
+INNER JOIN public.role_tbl AS r ON u.roleid = r.id
+LEFT JOIN public.designation_tbl AS d ON u.designationid = d.id
+LEFT JOIN public.department_tbl AS d0 ON u.departmentid = d0.id
+2026-09-27 19:30:17.313 +05:30 [INF] Executing FileContentResult, sending file with download name 'GeneratedDocuments.zip' ...
+2026-09-27 19:30:17.316 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 91.4354ms
+2026-09-27 19:30:17.317 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 19:30:17.319 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 200 9655 application/zip 100.4792ms
+2026-09-27 19:31:31.013 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryqutY7blDvhU9qr7E 11206
+2026-09-27 19:31:31.013 +05:30 [INF] CORS policy execution successful.
+2026-09-27 19:31:31.021 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 19:31:31.021 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-27 19:31:31.236 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r.id, r.isactive, r.name
+FROM public.role_tbl AS r
+2026-09-27 19:31:31.239 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.designation_tbl AS d
+2026-09-27 19:31:31.243 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.department_tbl AS d
+2026-09-27 19:31:31.249 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u.id, u.departmentid, u.designationid, u.firstname, u.isactive, u.lastname, u.passwordhash, u.roleid, u.username, r.id, r.isactive, r.name, d.id, d.isactive, d.name, d0.id, d0.isactive, d0.name
+FROM public.user_tbl AS u
+INNER JOIN public.role_tbl AS r ON u.roleid = r.id
+LEFT JOIN public.designation_tbl AS d ON u.designationid = d.id
+LEFT JOIN public.department_tbl AS d0 ON u.departmentid = d0.id
+2026-09-27 19:31:31.262 +05:30 [INF] Executing FileContentResult, sending file with download name 'GeneratedDocuments.zip' ...
+2026-09-27 19:31:31.264 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 242.0742ms
+2026-09-27 19:31:31.264 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 19:31:31.264 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 200 9686 application/zip 251.0191ms
+2026-09-27 23:07:24.116 +05:30 [INF] User profile is available. Using 'C:\Users\Akshay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-27 23:07:24.438 +05:30 [INF] Now listening on: https://localhost:7056
+2026-09-27 23:07:24.439 +05:30 [INF] Now listening on: http://localhost:5078
+2026-09-27 23:07:24.504 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-27 23:07:24.504 +05:30 [INF] Hosting environment: Development
+2026-09-27 23:07:24.504 +05:30 [INF] Content root path: D:\Practices\Dovetail Capital\BackendAPI\FileGenerationAPIApp
+2026-09-27 23:07:27.631 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger - null null
+2026-09-27 23:07:27.796 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger - 301 null null 167.2019ms
+2026-09-27 23:07:27.804 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 23:07:27.888 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 83.8105ms
+2026-09-27 23:07:27.900 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/swagger-ui.css - null null
+2026-09-27 23:07:27.904 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/swagger-ui-bundle.js - null null
+2026-09-27 23:07:27.904 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/swagger-ui-standalone-preset.js - null null
+2026-09-27 23:07:27.942 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-09-27 23:07:27.942 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-09-27 23:07:27.945 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 40.2983ms
+2026-09-27 23:07:27.945 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/swagger-ui.css - 200 152034 text/css 44.4984ms
+2026-09-27 23:07:27.949 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 23:07:27.956 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 23:07:27.959 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 9.6387ms
+2026-09-27 23:07:27.979 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-09-27 23:07:27.979 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 75.7883ms
+2026-09-27 23:07:28.042 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 86.5815ms
+2026-09-27 23:07:28.356 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 23:07:28.381 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.7106ms
+2026-09-27 23:08:26.340 +05:30 [INF] Request starting HTTP/1.1 POST https://localhost:7056/api/auth/login - application/json; charset=utf-8 null
+2026-09-27 23:08:26.479 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp)'
+2026-09-27 23:08:26.527 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(FileGenerationAPIApp.Controllers.LoginRequest) on controller FileGenerationAPIApp.Controllers.AuthController (FileGenerationAPIApp).
+2026-09-27 23:08:28.510 +05:30 [INF] Executed DbCommand (94ms) [Parameters=[@__username_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT u.id, u.departmentid, u.designationid, u.firstname, u.isactive, u.lastname, u.passwordhash, u.roleid, u.username, r.id, r.isactive, r.name, d.id, d.isactive, d.name, d0.id, d0.isactive, d0.name
+FROM public.user_tbl AS u
+INNER JOIN public.role_tbl AS r ON u.roleid = r.id
+LEFT JOIN public.designation_tbl AS d ON u.designationid = d.id
+LEFT JOIN public.department_tbl AS d0 ON u.departmentid = d0.id
+WHERE u.username = @__username_0
+LIMIT 1
+2026-09-27 23:08:28.793 +05:30 [INF] Executing OkObjectResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 23:08:28.799 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp) in 2268.7055ms
+2026-09-27 23:08:28.800 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.AuthController.Login (FileGenerationAPIApp)'
+2026-09-27 23:08:28.804 +05:30 [INF] Request finished HTTP/1.1 POST https://localhost:7056/api/auth/login - 200 null application/json; charset=utf-8 2463.2642ms
+2026-09-27 23:14:33.670 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryiv5xjkHlhfZT3ngV 11204
+2026-09-27 23:14:33.714 +05:30 [INF] CORS policy execution successful.
+2026-09-27 23:14:33.720 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:14:33.735 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-27 23:14:33.960 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-09-27 23:14:33.964 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 228.6018ms
+2026-09-27 23:14:33.964 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:14:33.965 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 400 null text/plain; charset=utf-8 295.5034ms
+2026-09-27 23:14:59.546 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryIHmGYPhBws4CTNvh 11149
+2026-09-27 23:14:59.622 +05:30 [INF] CORS policy execution successful.
+2026-09-27 23:14:59.629 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:14:59.630 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-27 23:14:59.679 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-09-27 23:14:59.680 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 49.0417ms
+2026-09-27 23:14:59.680 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:14:59.680 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 400 null text/plain; charset=utf-8 134.8877ms
+2026-09-27 23:15:49.244 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryyRAJItlqZOLzBiu7 11149
+2026-09-27 23:15:49.247 +05:30 [INF] CORS policy execution successful.
+2026-09-27 23:15:49.261 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:15:49.262 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-27 23:15:49.328 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-09-27 23:15:49.328 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 66.2676ms
+2026-09-27 23:15:49.328 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:15:49.329 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 400 null text/plain; charset=utf-8 84.2272ms
+2026-09-27 23:16:59.459 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryEl4xKcVcDStaShKT 11149
+2026-09-27 23:16:59.459 +05:30 [INF] CORS policy execution successful.
+2026-09-27 23:16:59.460 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:16:59.460 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-27 23:19:39.259 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-09-27 23:19:39.261 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 159800.633ms
+2026-09-27 23:19:39.261 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:19:39.265 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 400 null text/plain; charset=utf-8 159802.4459ms
+2026-09-27 23:33:33.579 +05:30 [INF] User profile is available. Using 'C:\Users\Akshay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-27 23:33:33.847 +05:30 [INF] Now listening on: https://localhost:7056
+2026-09-27 23:33:33.847 +05:30 [INF] Now listening on: http://localhost:5078
+2026-09-27 23:33:33.894 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-27 23:33:33.894 +05:30 [INF] Hosting environment: Development
+2026-09-27 23:33:33.894 +05:30 [INF] Content root path: D:\Practices\Dovetail Capital\BackendAPI\FileGenerationAPIApp
+2026-09-27 23:33:34.816 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger - null null
+2026-09-27 23:33:34.918 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger - 301 null null 103.2226ms
+2026-09-27 23:33:34.923 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 23:33:35.033 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 109.1065ms
+2026-09-27 23:33:35.041 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/swagger-ui.css - null null
+2026-09-27 23:33:35.042 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/swagger-ui-bundle.js - null null
+2026-09-27 23:33:35.043 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/swagger-ui-standalone-preset.js - null null
+2026-09-27 23:33:35.043 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 23:33:35.049 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 6.3496ms
+2026-09-27 23:33:35.078 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 23:33:35.093 +05:30 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2026-09-27 23:33:35.094 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/swagger-ui.css - 200 152034 text/css 53.2227ms
+2026-09-27 23:33:35.097 +05:30 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2026-09-27 23:33:35.097 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 53.9552ms
+2026-09-27 23:33:35.133 +05:30 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2026-09-27 23:33:35.133 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 91.2726ms
+2026-09-27 23:33:35.159 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 80.9875ms
+2026-09-27 23:33:35.314 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 23:33:35.338 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 24.3441ms
+2026-09-27 23:38:45.690 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundary6QqPMgaj5ATT7kFI 11108
+2026-09-27 23:38:45.710 +05:30 [INF] CORS policy execution successful.
+2026-09-27 23:38:45.823 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:38:45.907 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-27 23:39:16.733 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-09-27 23:39:16.747 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 30828.3313ms
+2026-09-27 23:39:16.748 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:39:16.760 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 400 null text/plain; charset=utf-8 31069.1628ms
+2026-09-27 23:39:22.656 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundarymu2ik2eB1OngPoRn 11108
+2026-09-27 23:39:22.660 +05:30 [INF] CORS policy execution successful.
+2026-09-27 23:39:22.666 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:39:22.667 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-27 23:40:12.973 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-09-27 23:40:12.974 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 50306.5296ms
+2026-09-27 23:40:12.974 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:40:12.975 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 400 null text/plain; charset=utf-8 50318.5606ms
+2026-09-27 23:40:14.684 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 23:40:14.705 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 20.4736ms
+2026-09-27 23:40:14.743 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 23:40:14.744 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 0.8158ms
+2026-09-27 23:40:14.749 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 23:40:14.762 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 12.8231ms
+2026-09-27 23:40:15.022 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 23:40:15.032 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/favicon-32x32.png - null null
+2026-09-27 23:40:15.032 +05:30 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2026-09-27 23:40:15.032 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/favicon-32x32.png - 200 628 image/png 1.1324ms
+2026-09-27 23:40:15.037 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.9969ms
+2026-09-27 23:44:07.676 +05:30 [INF] User profile is available. Using 'C:\Users\Akshay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-27 23:44:07.884 +05:30 [INF] Now listening on: https://localhost:7056
+2026-09-27 23:44:07.884 +05:30 [INF] Now listening on: http://localhost:5078
+2026-09-27 23:44:07.937 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-27 23:44:07.937 +05:30 [INF] Hosting environment: Development
+2026-09-27 23:44:07.937 +05:30 [INF] Content root path: D:\Practices\Dovetail Capital\BackendAPI\FileGenerationAPIApp
+2026-09-27 23:44:08.600 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 23:44:08.930 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 330.1456ms
+2026-09-27 23:44:08.956 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 23:44:08.956 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 23:44:08.962 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 5.8546ms
+2026-09-27 23:44:09.006 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 50.1451ms
+2026-09-27 23:44:09.085 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 23:44:09.121 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 35.5553ms
+2026-09-27 23:44:24.430 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryTeImvoAScSM8hYOB 244
+2026-09-27 23:44:24.450 +05:30 [INF] CORS policy execution successful.
+2026-09-27 23:44:24.534 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:44:24.579 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-27 23:44:28.303 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2026-09-27 23:44:28.314 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 3726.26ms
+2026-09-27 23:44:28.315 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:44:28.320 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 400 null text/plain; charset=utf-8 3890.3862ms
+2026-09-27 23:51:09.235 +05:30 [INF] User profile is available. Using 'C:\Users\Akshay\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-09-27 23:51:09.395 +05:30 [INF] Now listening on: https://localhost:7056
+2026-09-27 23:51:09.395 +05:30 [INF] Now listening on: http://localhost:5078
+2026-09-27 23:51:09.508 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-09-27 23:51:09.508 +05:30 [INF] Hosting environment: Development
+2026-09-27 23:51:09.508 +05:30 [INF] Content root path: D:\Practices\Dovetail Capital\BackendAPI\FileGenerationAPIApp
+2026-09-27 23:51:10.440 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/index.html - null null
+2026-09-27 23:51:10.691 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_vs/browserLink - null null
+2026-09-27 23:51:10.691 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - null null
+2026-09-27 23:51:10.694 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/index.html - 200 null text/html;charset=utf-8 252.8113ms
+2026-09-27 23:51:10.704 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_framework/aspnetcore-browser-refresh.js - 200 14945 application/javascript; charset=utf-8 13.4191ms
+2026-09-27 23:51:10.752 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/_vs/browserLink - 200 null text/javascript; charset=UTF-8 60.9633ms
+2026-09-27 23:51:10.799 +05:30 [INF] Request starting HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - null null
+2026-09-27 23:51:10.820 +05:30 [INF] Request finished HTTP/2 GET https://localhost:7056/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 20.9867ms
+2026-09-27 23:55:06.695 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Masters/users - application/json 163
+2026-09-27 23:55:06.712 +05:30 [INF] CORS policy execution successful.
+2026-09-27 23:55:06.817 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.MastersController.CreateUser (FileGenerationAPIApp)'
+2026-09-27 23:55:06.866 +05:30 [INF] Route matched with {action = "CreateUser", controller = "Masters"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateUser(CreateUser) on controller FileGenerationAPIApp.Controllers.MastersController (FileGenerationAPIApp).
+2026-09-27 23:55:10.211 +05:30 [INF] Executed DbCommand (152ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?', @p3='?', @p4='?', @p5='?' (DbType = Int32), @p6='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO public.user_tbl (departmentid, designationid, firstname, lastname, passwordhash, roleid, username)
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6)
+RETURNING id, isactive;
+2026-09-27 23:55:10.348 +05:30 [INF] Executing CreatedAtActionResult, writing value of type 'FileGenerationAPIApp.Models.ApiResponse'.
+2026-09-27 23:55:10.403 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.MastersController.CreateUser (FileGenerationAPIApp) in 3531.2593ms
+2026-09-27 23:55:10.405 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.MastersController.CreateUser (FileGenerationAPIApp)'
+2026-09-27 23:55:10.419 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Masters/users - 201 null application/json; charset=utf-8 3724.9977ms
+2026-09-27 23:56:39.080 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundaryUgpVBJCEdlalvxeD 11314
+2026-09-27 23:56:39.089 +05:30 [INF] CORS policy execution successful.
+2026-09-27 23:56:39.097 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:56:39.118 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-27 23:57:48.569 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r.id, r.isactive, r.name
+FROM public.role_tbl AS r
+2026-09-27 23:57:48.609 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.designation_tbl AS d
+2026-09-27 23:57:48.630 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.department_tbl AS d
+2026-09-27 23:57:48.970 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u.id, u.departmentid, u.designationid, u.firstname, u.isactive, u.lastname, u.passwordhash, u.roleid, u.username, r.id, r.isactive, r.name, d.id, d.isactive, d.name, d0.id, d0.isactive, d0.name
+FROM public.user_tbl AS u
+INNER JOIN public.role_tbl AS r ON u.roleid = r.id
+LEFT JOIN public.designation_tbl AS d ON u.designationid = d.id
+LEFT JOIN public.department_tbl AS d0 ON u.departmentid = d0.id
+2026-09-27 23:58:03.431 +05:30 [INF] Executing FileContentResult, sending file with download name 'GeneratedDocuments.zip' ...
+2026-09-27 23:58:03.452 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 84333.4109ms
+2026-09-27 23:58:03.452 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:58:03.455 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 200 9686 application/zip 84375.0315ms
+2026-09-27 23:59:27.212 +05:30 [INF] Request starting HTTP/2 POST https://localhost:7056/api/Document/generate - multipart/form-data; boundary=----WebKitFormBoundarymGCxZNTpa7sEKyUi 11314
+2026-09-27 23:59:27.215 +05:30 [INF] CORS policy execution successful.
+2026-09-27 23:59:27.231 +05:30 [INF] Executing endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-27 23:59:27.235 +05:30 [INF] Route matched with {action = "Generate", controller = "Document"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Generate(FileGenerationAPIApp.Models.DocumentRequest, System.Threading.CancellationToken) on controller FileGenerationAPIApp.Controllers.DocumentController (FileGenerationAPIApp).
+2026-09-28 00:01:59.310 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT r.id, r.isactive, r.name
+FROM public.role_tbl AS r
+2026-09-28 00:01:59.954 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.designation_tbl AS d
+2026-09-28 00:02:00.770 +05:30 [INF] Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT d.id, d.isactive, d.name
+FROM public.department_tbl AS d
+2026-09-28 00:02:04.396 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT u.id, u.departmentid, u.designationid, u.firstname, u.isactive, u.lastname, u.passwordhash, u.roleid, u.username, r.id, r.isactive, r.name, d.id, d.isactive, d.name, d0.id, d0.isactive, d0.name
+FROM public.user_tbl AS u
+INNER JOIN public.role_tbl AS r ON u.roleid = r.id
+LEFT JOIN public.designation_tbl AS d ON u.designationid = d.id
+LEFT JOIN public.department_tbl AS d0 ON u.departmentid = d0.id
+2026-09-28 00:02:28.387 +05:30 [INF] Executing FileContentResult, sending file with download name 'GeneratedDocuments.zip' ...
+2026-09-28 00:02:28.397 +05:30 [INF] Executed action FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp) in 181162.5246ms
+2026-09-28 00:02:28.398 +05:30 [INF] Executed endpoint 'FileGenerationAPIApp.Controllers.DocumentController.Generate (FileGenerationAPIApp)'
+2026-09-28 00:02:28.398 +05:30 [INF] Request finished HTTP/2 POST https://localhost:7056/api/Document/generate - 200 9686 application/zip 181190.9362ms

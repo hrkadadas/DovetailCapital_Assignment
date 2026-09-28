@@ -1,0 +1,51 @@
+@page
+@model FileGenerationUIApp.Pages.Masters.DepartmentsModel
+@{
+    ViewData["Title"] = "Departments";
+}
+
+<div class="container mt-4">
+    <h2>Departments</h2>
+    <p>Listing departments from backend API.</p>
+    @if (!string.IsNullOrEmpty(Model.StatusMessage))
+    {
+        <div class="alert alert-info">@Model.StatusMessage</div>
+    }
+
+    <div class="card mb-3 p-3">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-4">
+                    <input asp-for="NewName" class="form-control" placeholder="Name" />
+                </div>
+                <div class="col-md-4">
+                    <input asp-for="NewDescription" class="form-control" placeholder="Description (optional)" />
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary" type="submit">Create</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    @if (Model.Departments == null || !Model.Departments.Any())
+    {
+        <div class="alert alert-info">No departments found.</div>
+    }
+    else
+    {
+        <table class="table table-striped">
+            <thead><tr><th>#</th><th>Name</th><th>Description</th></tr></thead>
+            <tbody>
+                @for (int i = 0; i < Model.Departments.Count; i++)
+                {
+                    <tr>
+                        <td>@(i+1)</td>
+                        <td>@Model.Departments[i].GetValueOrDefault("name")</td>
+                        <td>@Model.Departments[i].GetValueOrDefault("description")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

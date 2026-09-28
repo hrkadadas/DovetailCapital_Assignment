@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "LWKqOuC8n34=",
+  "success": true,
+  "projectFilePath": "D:\\Practices\\Dovetail Capital\\BackendAPI\\FileGenerationUIApp\\FileGenerationUIApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Akshay\\.nuget\\packages\\documentformat.openxml\\3.0.0\\documentformat.openxml.3.0.0.nupkg.sha512",
+    "C:\\Users\\Akshay\\.nuget\\packages\\documentformat.openxml.framework\\3.0.0\\documentformat.openxml.framework.3.0.0.nupkg.sha512",
+    "C:\\Users\\Akshay\\.nuget\\packages\\system.io.packaging\\8.0.0\\system.io.packaging.8.0.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "FileGenerationUIApp depends on DocumentFormat.OpenXml (>= 2.25.0) but DocumentFormat.OpenXml 2.25.0 was not found. DocumentFormat.OpenXml 3.0.0 was resolved instead.",
+      "projectPath": "D:\\Practices\\Dovetail Capital\\BackendAPI\\FileGenerationUIApp\\FileGenerationUIApp.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\Practices\\Dovetail Capital\\BackendAPI\\FileGenerationUIApp\\FileGenerationUIApp.csproj",
+      "libraryId": "DocumentFormat.OpenXml",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}

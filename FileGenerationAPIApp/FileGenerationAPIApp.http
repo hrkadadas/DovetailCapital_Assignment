@@ -1,0 +1,6 @@
+@FileGenerationAPIApp_HostAddress = http://localhost:5078
+
+GET {{FileGenerationAPIApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
