@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FileGenerationUIApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a44506e120c8e4ae80cb93df18f732556a73131")]
 [assembly: System.Reflection.AssemblyProductAttribute("FileGenerationUIApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FileGenerationUIApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
